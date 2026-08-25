@@ -1,0 +1,33 @@
+{
+  "name": "campushub-backend",
+  "version": "1.0.0",
+  "description": "CampusHub REST API - lost & found items and student services",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "campushub",
+    "express",
+    "mysql",
+    "api",
+    "lost-and-found"
+  ],
+  "author": "GCTU Cloud Computing Group",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.600.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.1",
+    "mysql2": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

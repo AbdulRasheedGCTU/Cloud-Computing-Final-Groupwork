@@ -1,0 +1,20 @@
+# Dependencies & secrets — never commit these
+node_modules/
+.env
+backend/.env
+
+# Local uploads (only used when the S3 backend is not configured)
+backend/uploads/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+AWS_BUILD_SUMMARY.md
+DEPLOYMENT.md

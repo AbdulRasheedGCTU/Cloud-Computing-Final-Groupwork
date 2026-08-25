@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Posts — Found & Co.</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="brand">
+      <span class="display">Found &amp; Co.</span>
+      <span class="tag">GCTU Board</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" data-nav="feed">Feed</a>
+      <a href="dashboard.html" data-nav="dashboard" id="nav-dashboard" class="active">My Posts</a>
+    </nav>
+    <div class="header-actions">
+      <span id="user-chip"></span>
+      <a href="login.html" id="nav-login" class="btn btn-sm" style="display:none;">Log in</a>
+    </div>
+  </div>
+</header>
+
+<main class="board">
+  <div class="page-head">
+    <div>
+      <h1>My posts</h1>
+      <p>Everything you've reported lost, found, or offered as a service.</p>
+    </div>
+    <span class="stub-count mono" id="result-count">0 postings</span>
+  </div>
+
+  <div class="dash-toolbar">
+    <button class="btn btn-primary btn-sm" id="open-post-btn">+ Post an item</button>
+  </div>
+
+  <div class="grid" id="dash-grid"></div>
+  <div class="empty-state" id="empty-state" style="display:none;">
+    <h3>You haven't posted anything yet</h3>
+    <p>Items you post will show up here so you can edit, delete, or mark them resolved.</p>
+  </div>
+</main>
+
+<footer class="site-footer">Found &amp; Co. — a student project board.</footer>
+
+<!-- Edit modal (also reused for creating new posts) -->
+<div class="modal-overlay" id="post-modal-overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="post-modal-title">Edit post</h2>
+      <button class="btn-ghost" id="close-modal-btn" aria-label="Close">✕</button>
+    </div>
+    <form class="modal-body" id="post-form">
+      <input type="hidden" id="f-id">
+      <div class="form-error" id="post-form-error"></div>
+
+      <div class="field">
+        <label for="f-title">Title</label>
+        <input type="text" id="f-title" name="title" required>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="f-category">Category</label>
+          <select id="f-category" name="category" required>
+            <option value="LOST">Lost</option>
+            <option value="FOUND">Found</option>
+            <option value="SERVICE">Services</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-location">Location</label>
+          <input type="text" id="f-location" name="location" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-phone">Contact phone</label>
+        <input type="tel" id="f-phone" name="contact_phone" required>
+      </div>
+
+      <div class="field">
+        <label for="f-description">Description</label>
+        <textarea id="f-description" name="description" required></textarea>
+      </div>
+
+      <div class="field">
+        <label for="f-image">Photo</label>
+        <input type="file" id="f-image" name="image" accept="image/*">
+        <span class="form-note">Optional. Pick a new photo to replace the current one.</span>
+      </div>
+
+      <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:6px;">
+        <button type="button" class="btn" id="cancel-post-btn">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="submit-post-btn">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

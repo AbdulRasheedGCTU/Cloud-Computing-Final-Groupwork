@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Found & Co. — Campus Lost & Found</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="brand">
+      <span class="display">Found &amp; Co.</span>
+      <span class="tag">GCTU Board</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" data-nav="feed" class="active">Feed</a>
+      <a href="dashboard.html" data-nav="dashboard" id="nav-dashboard" style="display:none;">My Posts</a>
+    </nav>
+    <div class="header-actions">
+      <span id="user-chip"></span>
+      <a href="login.html" id="nav-login" class="btn btn-sm">Log in</a>
+      <button class="btn btn-primary btn-sm" id="open-post-btn">+ Post an item</button>
+    </div>
+  </div>
+</header>
+
+<main class="board">
+  <div class="page-head">
+    <div>
+      <h1>What's on the board</h1>
+      <p>Browse items reported lost or found around campus, or offer a service to a fellow student.</p>
+    </div>
+    <span class="stub-count mono" id="result-count">0 postings</span>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-chip active" data-filter="All">All</button>
+    <button class="filter-chip" data-filter="Lost">Lost</button>
+    <button class="filter-chip" data-filter="Found">Found</button>
+    <button class="filter-chip" data-filter="Services">Services</button>
+  </div>
+
+  <div class="grid" id="feed-grid"></div>
+  <div class="empty-state" id="empty-state" style="display:none;">
+    <h3>Nothing here yet</h3>
+    <p>Be the first to post in this category.</p>
+  </div>
+</main>
+
+<footer class="site-footer">Found &amp; Co. — a student project board. Be kind, be specific, be honest.</footer>
+
+<!-- Detail modal -->
+<div class="modal-overlay" id="detail-modal-overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="detail-title">Item</h2>
+      <button class="btn-ghost" id="detail-close-btn" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="detail-thumb" id="detail-thumb">No photo attached</div>
+      <span class="stamp" id="detail-category">LOST</span>
+      <p class="detail-meta mono" id="detail-meta"></p>
+      <p id="detail-description" style="line-height:1.5; margin:0;"></p>
+      <div class="detail-contact" id="detail-contact"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Post modal -->
+<div class="modal-overlay" id="post-modal-overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Post an item</h2>
+      <button class="btn-ghost" id="close-modal-btn" aria-label="Close">✕</button>
+    </div>
+    <form class="modal-body" id="post-form">
+      <div class="form-error" id="post-form-error"></div>
+
+      <div class="field">
+        <label for="f-title">Title</label>
+        <input type="text" id="f-title" name="title" required placeholder="e.g. Black North Face backpack">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="f-category">Category</label>
+          <select id="f-category" name="category" required>
+            <option value="LOST">Lost</option>
+            <option value="FOUND">Found</option>
+            <option value="SERVICE">Services</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-location">Location</label>
+          <input type="text" id="f-location" name="location" required placeholder="e.g. Block C, Room 214">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-phone">Contact phone</label>
+        <input type="tel" id="f-phone" name="contact_phone" required placeholder="e.g. 055 123 4567">
+      </div>
+
+      <div class="field">
+        <label for="f-description">Description</label>
+        <textarea id="f-description" name="description" required placeholder="Distinguishing details, when it happened, how to identify it..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="f-image">Photo</label>
+        <input type="file" id="f-image" name="image" accept="image/*">
+        <span class="form-note">Optional. The photo is uploaded to the server and shown on your posting.</span>
+      </div>
+
+      <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:6px;">
+        <button type="button" class="btn" id="cancel-post-btn">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="submit-post-btn">Post to board</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
